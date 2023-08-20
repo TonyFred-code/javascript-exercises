@@ -1,4 +1,17 @@
-const fibonacci = function() {
+const fibonacci = function(memberIndex) {
+    if (memberIndex < 0) {
+        return "OOPS"
+    }
+    let sequence = [1, 1];
+
+    for (let i = 2; i < memberIndex; i++) {
+        let prevTerm = sequence[i - 1];
+        let beforePrevTerm = sequence[i - 2];
+        let term = prevTerm + beforePrevTerm;
+        sequence.push(term);
+    }
+
+    return sequence.pop();
 
 };
 
