@@ -2,13 +2,9 @@ const findTheOldest = function(array) {
     let oldest = array[0];
 
     for (let i = 1; i < array.length; i++) {
-        let oldestBirthYear = oldest.yearOfBirth;
-        let oldestDeathYear = oldest.yearOfDeath || 2023;
-        let oldestAge = oldestDeathYear - oldestBirthYear;
+        let oldestAge = getAge(oldest.yearOfBirth, oldest.yearOfDeath);
         let person = array[i]
-        let personBirthYear = person.yearOfBirth;
-        let personDeathYear = person.yearOfDeath || 2023;
-        let personAge = personDeathYear - personBirthYear;
+        let personAge = getAge(person.yearOfBirth, person.yearOfDeath);
         if (personAge > oldestAge) {
             oldest = person;
         }
@@ -16,6 +12,14 @@ const findTheOldest = function(array) {
 
     return oldest;
 };
+
+function getAge(birth, death) {
+    if (!death) {
+        death = new Date().getFullYear();
+    }
+
+    return death - birth;
+}
 
 // Do not edit below this line
 module.exports = findTheOldest;
