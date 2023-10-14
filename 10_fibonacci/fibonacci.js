@@ -4,16 +4,16 @@ const fibonacci = function(memberIndex) {
     }
     if (memberIndex === 0) return 0;
 
-    let sequence = [1, 1];
+    let firstPrev = 1;
+    let secondPrev= 0;
 
-    for (let i = 2; i < memberIndex; i++) {
-        let prevTerm = sequence[i - 1];
-        let beforePrevTerm = sequence[i - 2];
-        let term = prevTerm + beforePrevTerm;
-        sequence.push(term);
+    for (let i = 2; i <= memberIndex; i++) {
+        let current = firstPrev + secondPrev;
+        secondPrev = firstPrev;
+        firstPrev = current;
     }
 
-    return sequence.pop();
+    return firstPrev;
 
 };
 
