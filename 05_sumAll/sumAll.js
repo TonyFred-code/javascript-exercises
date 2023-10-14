@@ -1,28 +1,23 @@
-const sumAll = function(num1, num2) {
-    if (num1 < 0 || num2 < 0) {
+const sumAll = function(min, max) {
+    if (min < 0 || max < 0) {
         return "ERROR"
     }
 
-    if (Number.isNaN(num1) || typeof num1 !== "number") {
+    if (Number.isNaN(min) || typeof min !== "number") {
         return "ERROR"
     }
 
-    if (Number.isNaN(num2) || typeof num2 !== "number") {
+    if (Number.isNaN(max) || typeof max !== "number") {
         return "ERROR"
     }
 
-    let min = 0,
-        max = 0,
-        sum = 0;
-
-    if (num1 > num2) {
-        max = num1;
-        min = num2;
-    } else {
-        max = num2;
-        min = num1;
+    if (min > max) {
+        const temp = max
+        max = min;
+        min = temp;
     }
 
+    let sum = 0;
     for (let i = min; i <= max; i++) {
         sum += i;
     }
