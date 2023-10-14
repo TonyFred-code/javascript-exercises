@@ -2,6 +2,8 @@ const fibonacci = function(memberIndex) {
     if (memberIndex < 0) {
         return "OOPS"
     }
+    if (memberIndex === 0) return 0;
+
     let sequence = [1, 1];
 
     for (let i = 2; i < memberIndex; i++) {
