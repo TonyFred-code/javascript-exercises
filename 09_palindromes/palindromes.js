@@ -1,10 +1,6 @@
 const palindromes = function (string) {
     let lowerCaseString = string.toLowerCase().replace(/\W/g, "");
-    if (lowerCaseString === lowerCaseString.split("").reverse("").join("")) {
-        return true;
-    } else {
-        return false;
-    }
+    return lowerCaseString.split("").reverse().join("") === lowerCaseString;
 };
 
 // Do not edit below this line
